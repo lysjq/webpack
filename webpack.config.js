@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname +'/build'),
         filename: 'index.js',
-        // publicPath:'/build/' //代表了server自动监测时需要查看的文件，主html文件要和这相同，不然无法监测// 图片资源路径 // dev-server路径 // 注意路径，没.
+        // publicPath:'/build/'  // string    // 输出解析文件的目录，url 相对于 HTML 页面
     },
     devtool:'eval-source-map',
     devServer: {
@@ -23,9 +23,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options:{
-                        presets:[
-                            "env"
-                        ]
+                        presets:['@babel/preset-env']
                     },
                 },
                 exclude: /node_modules/
